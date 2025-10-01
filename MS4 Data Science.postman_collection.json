@@ -1,0 +1,88 @@
+{
+	"info": {
+		"_postman_id": "2dbb5391-bc05-4ded-8bc1-2477e389b221",
+		"name": "MS4 Data Science",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43507435"
+	},
+	"item": [
+		{
+			"name": "Estado del historial por Id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/estado_historial/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"estado_historial",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Total gastado entre fechas por Id",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/total_gastado/1?fecha_inicio=2025-01-25&fecha_fin=2025-09-25",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"total_gastado",
+						"1"
+					],
+					"query": [
+						{
+							"key": "fecha_inicio",
+							"value": "2025-01-25"
+						},
+						{
+							"key": "fecha_fin",
+							"value": "2025-09-25"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ranking de categorias",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/ranking_categorias",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"ranking_categorias"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
