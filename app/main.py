@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from typing import List
 from datetime import date
 import logging
+from fastapi.responses import JSONResponse
 
 load_dotenv()
 ATHENA_DB = os.getenv("ATHENA_DB", "analytic")
@@ -85,6 +86,10 @@ class CategoriaCompraResponse(BaseModel):
     id_categoria: int
     nombre_categoria: str
     total_compras: int
+
+@app.get("/health")
+async def health_check():
+    return JSONResponse(content={"status": "ok", "message": "API is running"})
 
 # Endpoint 1: Estado de los productos por usuario con porcentajes
 @app.get("/estado_historial/{id_usuario}", response_model=EstadoHistorialResponse)
