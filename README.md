@@ -1,5 +1,4 @@
-# ms4
-# MS4 Analytics - API de FastAPI
+# MS5 Analytics - API de FastAPI
 
 Este proyecto proporciona una API RESTful utilizando **FastAPI** para consultar y procesar datos de compras de usuarios a través de AWS Athena. La API permite obtener información sobre el estado de los productos comprados por un usuario, el total gastado en un rango de fechas y el ranking de las categorías más compradas.
 
