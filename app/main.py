@@ -8,6 +8,7 @@ from typing import List
 from datetime import date
 import logging
 from fastapi.responses import JSONResponse
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 ATHENA_DB = os.getenv("ATHENA_DB", "analytic")
@@ -15,6 +16,18 @@ WORKGROUP = "primary"
 athena = boto3.client("athena", region_name="us-east-1")
 
 app = FastAPI(title="MS4 Analytics")
+
+origins_env = os.getenv("ALLOWED_ORIGINS", "")
+allow_origins = [o.strip() for o in origins_env.split(",") if o.strip()]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=allow_origins, 
+    allow_credentials=True,        
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allow_headers=["*"],
+)
+
 
 def run_athena(query: str, params: dict, timeout_s: int = 60):
     logging.debug(f"Ejecutando consulta Athena con los parámetros: {params}")
