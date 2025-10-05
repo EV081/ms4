@@ -104,7 +104,7 @@ async def get_estado_historial(id_usuario: int):
                        WHEN hp.estado = 'cancelado' THEN 'cancelado'
                        ELSE 'otro'
                    END AS estado_producto
-            FROM "analytic"."historialpedidos" hp
+            FROM "analytic"."pedidos" hp
             WHERE hp.id_usuario = :id_usuario
         )
         SELECT u.id_usuario,
